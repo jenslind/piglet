@@ -1,3 +1,3 @@
 # Piglet
 
-> Run Grunt tasks from the tray.
+> Run Grunt tasks from OS X menu bar.

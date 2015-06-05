@@ -1,7 +1,7 @@
 {
   "name": "piglet",
   "version": "0.1.0",
-  "description": "Run Grunt tasks from the tray.",
+  "description": "Run Grunt tasks from OS X menu bar.",
   "main": "index.js",
   "scripts": {
     "test": "standard",
