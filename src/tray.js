@@ -27,7 +27,6 @@ void (function () {
   grunt.getTasks()
     .then(function (tasks) {
       for (let task of tasks) {
-        console.log(task)
         trayMenu.append(new MenuItem({
           label: task,
           click: function () {
