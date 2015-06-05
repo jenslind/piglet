@@ -63,8 +63,6 @@ void (function () {
           }
         }))
 
-        trayMenu.items[0].label = ':D'
-
         tray.setContextMenu(trayMenu)
       })
   }
