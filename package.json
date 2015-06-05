@@ -18,5 +18,8 @@
   "homepage": "https://github.com/jenslind/piglet",
   "devDependencies": {
     "electron-prebuilt": "^0.27.2"
+  },
+  "dependencies": {
+    "gruntfile-api": "0.0.10"
   }
 }
