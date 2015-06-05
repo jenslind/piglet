@@ -5,6 +5,7 @@ void (function () {
   const Tray = remote.require('tray')
   const Menu = remote.require('menu')
   const MenuItem = remote.require('menu-item')
+  const dialog = remote.require('dialog')
   const ipc = require('ipc')
 
   // Set up tray menu.
@@ -14,7 +15,11 @@ void (function () {
   trayMenu.append(new MenuItem({
     label: window.localStorage.getItem('current'),
     click: function () {
-
+      dialog.showOpenDialog({ properties: ['openDirectory']}, function (dir) {
+        if (dir !== undefined) {
+          window.localStorage.setItem('current', dir)
+        }
+      })
     }
   }))
 
