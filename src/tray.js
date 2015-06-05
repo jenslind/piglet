@@ -24,6 +24,8 @@ void (function () {
     }
   }))
 
+  trayMenu.append(new MenuItem({type: 'separator'}))
+
   grunt.getTasks()
     .then(function (tasks) {
       for (let task of tasks) {
