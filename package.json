@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jenslind/piglet/issues"
   },
-  "homepage": "https://github.com/jenslind/piglet"
+  "homepage": "https://github.com/jenslind/piglet",
+  "devDependencies": {
+    "electron-prebuilt": "^0.27.2"
+  }
 }
