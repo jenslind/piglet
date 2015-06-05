@@ -22,6 +22,9 @@ void (function () {
         dialog.showOpenDialog({ properties: ['openDirectory']}, function (dir) {
           if (dir !== undefined) {
             window.localStorage.setItem('current', dir)
+            // Rebuild menu
+            trayMenu = new Menu()
+            build()
           }
         })
       }
