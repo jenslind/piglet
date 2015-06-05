@@ -34,6 +34,7 @@ void (function () {
         for (let task of tasks) {
           let item = {
             label: task,
+            type: 'checkbox',
             click: function () {
               grunt.runTask(task, function () {
                 // Rebuild menu
@@ -44,7 +45,7 @@ void (function () {
           }
 
           if (global.processes[task]) {
-            item.icon = 'running.png'
+            item.checked = true
           }
 
           trayMenu.append(new MenuItem(item))
