@@ -10,7 +10,7 @@ void (function () {
   const grunt = require('./lib/Grunt')
 
   // Set up tray menu.
-  let tray = new Tray('IconTemplate.png')
+  let tray = new Tray('grunt.png')
   let trayMenu = new Menu()
 
   build()
