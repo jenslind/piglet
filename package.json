@@ -1,0 +1,19 @@
+{
+  "name": "piglet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://jenslind@github.com/jenslind/piglet.git"
+  },
+  "author": "Jens Lind <jens@jensl.se> (http://jenslind.org/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jenslind/piglet/issues"
+  },
+  "homepage": "https://github.com/jenslind/piglet"
+}
