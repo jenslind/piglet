@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard",
+    "start": "electron .",
+    "build": "electron-packager"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,9 @@
   },
   "homepage": "https://github.com/jenslind/piglet",
   "devDependencies": {
-    "electron-prebuilt": "^0.27.2"
+    "electron-packager": "^4.1.2",
+    "electron-prebuilt": "^0.27.2",
+    "standard": "^4.0.1"
   },
   "dependencies": {
     "gruntfile-api": "0.0.10"
