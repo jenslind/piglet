@@ -7,6 +7,7 @@ void (function () {
   const MenuItem = remote.require('menu-item')
   const dialog = remote.require('dialog')
   const ipc = require('ipc')
+  const grunt = require('./lib/Grunt')
 
   // Set up tray menu.
   let tray = new Tray('IconTemplate.png')
@@ -23,14 +24,27 @@ void (function () {
     }
   }))
 
-  trayMenu.append(new MenuItem({type: 'separator'}))
+  grunt.getTasks()
+    .then(function (tasks) {
+      for (let task of tasks) {
+        console.log(task)
+        trayMenu.append(new MenuItem({
+          label: task,
+          click: function () {
+            grunt.runTask(task)
+          }
+        }))
+      }
 
-  trayMenu.append(new MenuItem({
-    label: 'Quit',
-    click: function () {
-      ipc.send('app-quit')
-    }
-  }))
+      trayMenu.append(new MenuItem({type: 'separator'}))
 
-  tray.setContextMenu(trayMenu)
+      trayMenu.append(new MenuItem({
+        label: 'Quit',
+        click: function () {
+          ipc.send('app-quit')
+        }
+      }))
+
+      tray.setContextMenu(trayMenu)
+    })
 })()
