@@ -1,7 +1,7 @@
 {
   "name": "piglet",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Run Grunt tasks from the tray.",
   "main": "index.js",
   "scripts": {
     "test": "standard",
