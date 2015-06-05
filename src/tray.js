@@ -13,39 +13,55 @@ void (function () {
   let tray = new Tray('IconTemplate.png')
   let trayMenu = new Menu()
 
-  trayMenu.append(new MenuItem({
-    label: window.localStorage.getItem('current'),
-    click: function () {
-      dialog.showOpenDialog({ properties: ['openDirectory']}, function (dir) {
-        if (dir !== undefined) {
-          window.localStorage.setItem('current', dir)
+  build()
+
+  function build () {
+    trayMenu.append(new MenuItem({
+      label: window.localStorage.getItem('current'),
+      click: function () {
+        dialog.showOpenDialog({ properties: ['openDirectory']}, function (dir) {
+          if (dir !== undefined) {
+            window.localStorage.setItem('current', dir)
+          }
+        })
+      }
+    }))
+
+    trayMenu.append(new MenuItem({type: 'separator'}))
+
+    grunt.getTasks()
+      .then(function (tasks) {
+        for (let task of tasks) {
+          let item = {
+            label: task,
+            click: function () {
+              grunt.runTask(task, function () {
+                // Rebuild menu
+                trayMenu = new Menu()
+                build()
+              })
+            }
+          }
+
+          if (global.processes[task]) {
+            item.icon = 'running.png'
+          }
+
+          trayMenu.append(new MenuItem(item))
         }
-      })
-    }
-  }))
 
-  trayMenu.append(new MenuItem({type: 'separator'}))
+        trayMenu.append(new MenuItem({type: 'separator'}))
 
-  grunt.getTasks()
-    .then(function (tasks) {
-      for (let task of tasks) {
         trayMenu.append(new MenuItem({
-          label: task,
+          label: 'Quit',
           click: function () {
-            grunt.runTask(task)
+            ipc.send('app-quit')
           }
         }))
-      }
 
-      trayMenu.append(new MenuItem({type: 'separator'}))
+        trayMenu.items[0].label = ':D'
 
-      trayMenu.append(new MenuItem({
-        label: 'Quit',
-        click: function () {
-          ipc.send('app-quit')
-        }
-      }))
-
-      tray.setContextMenu(trayMenu)
-    })
+        tray.setContextMenu(trayMenu)
+      })
+  }
 })()
