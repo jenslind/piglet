@@ -17,7 +17,7 @@ void (function () {
 
   function build () {
     trayMenu.append(new MenuItem({
-      label: window.localStorage.getItem('current'),
+      label: window.localStorage.getItem('current') || 'Choose folder...',
       click: function () {
         dialog.showOpenDialog({ properties: ['openDirectory']}, function (dir) {
           if (dir !== undefined) {
