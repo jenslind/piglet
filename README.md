@@ -6,6 +6,9 @@
 
 Select your source dir and then run Grunt tasks from the menu bar.
 
+## Install
+[Download](https://github.com/jenslind/piglet/releases/latest) and extract.
+
 ## Build
 ```
 npm run build
