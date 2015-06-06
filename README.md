@@ -1,4 +1,4 @@
-# Piglet [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+# Piglet [![Build Status](https://travis-ci.org/jenslind/piglet.svg?branch=master)](https://travis-ci.org/jenslind/piglet) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 > Run Grunt tasks from OS X menu bar.
 
