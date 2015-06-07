@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "fix-path": "^1.1.0",
-    "gruntfile-api": "0.0.10",
+    "get-grunt-tasks": "^1.0.0",
     "node-notifier": "^4.2.1",
     "tildify": "^1.0.0"
   }
