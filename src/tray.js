@@ -14,9 +14,15 @@ void (function () {
   let tray = new Tray(__dirname + '/gruntTemplate.png')
   let trayMenu = new Menu()
 
+  // Rebuild menu on update-download
+  ipc.on('update-downloaded', function (installUpdate) {
+    trayMenu = new Menu()
+    build(installUpdate)
+  })
+
   build()
 
-  function build () {
+  function build (installUpdate) {
     let current = window.localStorage.getItem('current') || 'Choose folder...'
     trayMenu.append(new MenuItem({
       label: tildify(current),
@@ -61,6 +67,15 @@ void (function () {
         }
 
         trayMenu.append(new MenuItem({type: 'separator'}))
+
+        if (installUpdate) {
+          trayMenu.append(new MenuItem({
+            label: 'Install update',
+            click: function () {
+              installUpdate()
+            }
+          }))
+        }
 
         trayMenu.append(new MenuItem({
           label: 'Quit',
