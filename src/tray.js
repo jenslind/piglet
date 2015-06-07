@@ -22,8 +22,13 @@ void (function () {
         dialog.showOpenDialog({ properties: ['openDirectory']}, function (dir) {
           if (dir !== undefined) {
             window.localStorage.setItem('current', dir)
-            // Stop all tasks
-            grunt.stopAll()
+            if (Object.keys(global.processes).length > 0) {
+              // Stop all tasks
+              grunt.stopAll()
+            } else {
+              trayMenu = new Menu()
+              build()
+            }
           }
         })
       }
