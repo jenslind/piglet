@@ -8,6 +8,7 @@ void (function () {
   const dialog = remote.require('dialog')
   const ipc = require('ipc')
   const grunt = require('./lib/Grunt')
+  const tildify = require('tildify')
 
   // Set up tray menu.
   let tray = new Tray(__dirname + '/gruntTemplate.png')
@@ -16,8 +17,9 @@ void (function () {
   build()
 
   function build () {
+    let current = window.localStorage.getItem('current') || 'Choose folder...'
     trayMenu.append(new MenuItem({
-      label: window.localStorage.getItem('current') || 'Choose folder...',
+      label: tildify(current),
       click: function () {
         dialog.showOpenDialog({ properties: ['openDirectory']}, function (dir) {
           if (dir !== undefined) {
