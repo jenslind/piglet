@@ -24,10 +24,6 @@ void (function () {
             window.localStorage.setItem('current', dir)
             // Stop all tasks
             grunt.stopAll()
-
-            // Rebuild menu
-            trayMenu = new Menu()
-            build()
           }
         })
       }
