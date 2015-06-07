@@ -4,7 +4,7 @@
 
 <img src="screenshot.png" width="300">
 
-Select your source dir and then run Grunt tasks from the menu bar.
+Select your source dir and then run Grunt tasks from the menubar.
 
 ## Install
 [Download](https://github.com/jenslind/piglet/releases/latest) and extract.
