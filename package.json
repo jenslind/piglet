@@ -24,6 +24,7 @@
     "standard": "^4.0.1"
   },
   "dependencies": {
+    "current-path": "^1.0.1",
     "fix-path": "^1.1.0",
     "get-grunt-tasks": "^1.0.0",
     "node-notifier": "^4.2.1",
