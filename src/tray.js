@@ -105,11 +105,13 @@ void (function () {
     if (window.localStorage.getItem('followFinder') === 'true') {
       finderInterval = setInterval(function () {
         currentPath(function (err, path) {
-          if (!err && window.localStorage.getItem('current') !== path) {
-            window.localStorage.setItem('current', path)
+          grunt.hasFile(path, function (status) {
+            if (!err && window.localStorage.getItem('current') !== path && status) {
+              window.localStorage.setItem('current', path)
 
-            rebuild()
-          }
+              rebuild()
+            }
+          })
         })
       }, FINDER_UPDATE)
     }
