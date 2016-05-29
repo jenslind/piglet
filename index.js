@@ -10,11 +10,13 @@ require('crash-reporter').start()
 let mainWindow
 
 app.on('ready', function () {
-  // Fix $PATH
-  fixPath()
+  if (process.platform === 'darwin') {
+    // Fix $PATH
+    fixPath()
 
-  // Hide in dock
-  app.dock.hide()
+    // Hide in dock
+    app.dock.hide()
+  }
 
   // Main window
   mainWindow = new BrowserWindow({
