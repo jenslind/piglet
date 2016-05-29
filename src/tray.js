@@ -32,7 +32,7 @@ void (function () {
         checked: window.localStorage.getItem('followFinder') === 'true',
         click: function (item) {
           window.localStorage.setItem('followFinder', item.checked)
-            rebuild()
+          rebuild()
         }
       }))
 
