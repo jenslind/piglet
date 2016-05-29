@@ -24,17 +24,20 @@ void (function () {
   function build () {
     // Current menu
     let currentMenu = new Menu()
-    currentMenu.append(new MenuItem({
-      label: 'Follow Finder',
-      type: 'checkbox',
-      checked: window.localStorage.getItem('followFinder') === 'true',
-      click: function (item) {
-        window.localStorage.setItem('followFinder', item.checked)
-        rebuild()
-      }
-    }))
 
-    currentMenu.append(new MenuItem({type: 'separator'}))
+    if (process.platform !== 'linux') {
+      currentMenu.append(new MenuItem({
+        label: 'Follow Finder',
+        type: 'checkbox',
+        checked: window.localStorage.getItem('followFinder') === 'true',
+        click: function (item) {
+          window.localStorage.setItem('followFinder', item.checked)
+            rebuild()
+        }
+      }))
+
+      currentMenu.append(new MenuItem({type: 'separator'}))
+    }
 
     currentMenu.append(new MenuItem({
       label: 'Choose folder...',
